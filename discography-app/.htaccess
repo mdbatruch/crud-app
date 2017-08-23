@@ -1,0 +1,29 @@
+#URL Rewriting Apache Script
+
+# use custom 404 error page
+ErrorDocument 404 /404
+
+#turn on mod_rewrite
+RewriteEngine ON
+
+#base folder for the site
+RewriteBase /
+
+#RewriteRule ^test-page/$ test.html [NC]
+
+#rewrite all other URLs to the index.php file, using the url as the action variable
+
+# clean up the delete URLS
+RewriteRule ^delete/(.*)$ index.php?action=delete&delete-id=$1 [QSA]
+
+# clean up complete URLS
+RewriteRule ^complete/(.*)$ index.php?action=complete&complete-id=$1 [QSA]
+
+# if the file being requested exists in the site, don't rewrite
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# if the directory being requested exists in the site, don't rewrite
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#anything but the address to the files in folder will bring you back to the index page
+RewriteRule ^(.*)$ index.php?action=$1 [QSA]
