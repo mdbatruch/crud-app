@@ -6,7 +6,7 @@
             die( "Redirect to <a href=\"$url\">$url</a> failed.");
         }
 
-            //SANITZE ENTRIES
+            //SANITIZE ENTRIES
 
         function sanitize( $database, $data ){
             
