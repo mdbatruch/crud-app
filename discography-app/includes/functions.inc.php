@@ -18,7 +18,7 @@
         }
 
 
-            //RETREIVE ENTRY FUNCTION
+            //RETRIEVE ENTRY FUNCTION
 
         function get_entry( $database ){
             
@@ -40,7 +40,7 @@
 
         function add_entry( $database, $artist_name, $album_name, $year_release ){
     
-    $errors = array();
+                $errors = array();
             
             if( strlen( $_POST[ 'artist_name' ] ) < 1 ){
                 
@@ -75,9 +75,9 @@
             if ( $result == true ){
                 
                 echo 'Success!';
-//                
-//                header( 'Location: ' . $_SERVER[ 'PHP_SELF' ] );
-//                redirect( $_SERVER[ 'PHP_SELF' ] );
+                    
+                //header( 'Location: ' . $_SERVER[ 'PHP_SELF' ] );
+                //redirect( $_SERVER[ 'PHP_SELF' ] );
                
                 
                 
@@ -124,6 +124,7 @@
                 }
             
             //VALIDATE THAT PASSWORD IS CORRECT
+                
                 if( strlen( $password ) < 1 ){
                     
                     $errors[ 'password' ] = '<p class="error">
@@ -209,7 +210,7 @@
     } else {
             redirect( SITE_ROOT . '?action=login');
         }
-        }
+}
 
 
 
