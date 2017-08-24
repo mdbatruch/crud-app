@@ -7,11 +7,11 @@
         define( 'DB_PASSWORD',  'babyduck' );
         define( 'DB_NAME',      'humber-wddm' );
 
-define( 'REWRITE_URLS', true );
+        define( 'REWRITE_URLS', true );
 
-define( 'SITE_ROOT', '/' );
+        define( 'SITE_ROOT', '/' );
 
-define( 'LOGGED_IN', 'fdsfdasfsfsawfgarggnrns');
+        define( 'LOGGED_IN', 'fdsfdasfsfsawfgarggnrns');
 
 //DISCOGRAPHY-APP CREDENTIALS:
 //admin@hello.com
