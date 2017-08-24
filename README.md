@@ -6,7 +6,7 @@ http://discography-app.mike-batruch.ca/
 
 With the following credentials:
 
-Username - admin@hello.com
+Username - admin@hello.com<br>
 Password - password
 
 When time permits, I'd like to add the Discogs API for this application in the search bar and add the image upload feature.
