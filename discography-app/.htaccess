@@ -7,7 +7,7 @@ ErrorDocument 404 /404
 RewriteEngine ON
 
 #base folder for the site
-RewriteBase /
+RewriteBase /Web-Stuff/crud-app/discography-app/
 
 #RewriteRule ^test-page/$ test.html [NC]
 

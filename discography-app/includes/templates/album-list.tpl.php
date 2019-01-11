@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../../css/font-awesome.css" />
         
         <!-- main stylesheet link -->
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/stylesheet.css" />
                
         <!-- HTML5Shiv: adds HTML5 tag support for older IE browsers -->
         <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     </head>
     <body>
         <header>
-            <h1>Album List</h1>
+            <h1>Album Listing</h1>
                <div id="search-container">
                     <form id="search-bar" action="<?php echo $_SERVER[ 'PHP_SELF' ]; ?>?action=search" method="post">
                             <div id="search-icon">
@@ -77,8 +77,11 @@
             <div id="space"></div>
         <footer>
             <div id="logout">
-                <a href="/logout">Log Out</a>
+                <a href="<?php echo SITE_ROOT . 'logout'?>">Log Out</a>
             </div>
         </footer>
+        <script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:8890/browser-sync/browser-sync-client.js?v=2.26.3'><\/script>".replace("HOST", location.hostname));
+//]]></script>
     </body>
 </html>

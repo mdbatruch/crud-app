@@ -140,7 +140,7 @@
                                     firstname,
                                     lastname,
                                     password
-                                        FROM todo_users
+                                        FROM users
                                         WHERE email ='$email'
                                         LIMIT 1";
                 
@@ -151,7 +151,7 @@
                     
                     $row = mysqli_fetch_assoc( $result );
                     
-                    if( password_verify( $password, $row[ 'password'] ) ){
+                    if(md5($password) === $row[ 'password']){
                         
                         $_SESSION[ 'login_token' ] = LOGGED_IN;
                         $_SESSION[ 'user_id '] = $row[ 'id' ];

@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Roboto");
+/* Eric Meyer CSS reset begins */
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:after, blockquote:before, q:after, q:before {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Eric Meyer CSS reset ends */
+/*
+
+                                                MAIN STYLING BEGINS HERE
+
+                            */
+html {
+  font-size: 16px; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  /*    background-color: #F2F5F4;*/
+  background-color: #b7c9ca;
+  min-height: 100%; }
+
+/*
+
+                                                HEADER STYLING BEGINS HERE
+
+                            */
+header {
+  color: aliceblue;
+  background-color: #11232B;
+  height: 80px;
+  padding: 1%; }
+
+h1 {
+  float: left;
+  font-size: 5rem;
+  line-height: 80px; }
+
+form#search-bar {
+  float: right;
+  background-color: transparent; }
+
+form#search-bar input[type="text"] {
+  /*    border: 2px solid aliceblue;*/
+  width: 80%;
+  display: inline;
+  height: 30px;
+  border-bottom: none !important;
+  font-size: 150%;
+  padding: 1%; }
+
+button {
+  background: none;
+  border: 0;
+  color: aliceblue;
+  border-left: 2px solid aliceblue;
+  padding-left: 13px; }
+
+#search-icon {
+  display: inline;
+  border: 2px solid aliceblue;
+  padding: 1%;
+  float: right; }
+
+form {
+  background-color: cadetblue;
+  padding: 20px; }
+
+form h1 {
+  text-align: center;
+  float: none;
+  padding-bottom: 15px;
+  border-bottom: 8px solid #f1efef; }
+
+legend {
+  font-size: 2rem;
+  text-align: center; }
+
+#submission-form li {
+  padding: 20px; }
+
+label {
+  font-size: 2rem;
+  float: left;
+  clear: both;
+  padding: 20px; }
+
+input[type="text"], input[type="password"] {
+  /*    background-color: cadetblue;*/
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 150%;
+  border-bottom: 2px solid black;
+  width: 100%; }
+
+input[type="text"]#login-form-email {
+  width: 50%;
+  float: left;
+  margin-top: 20px; }
+
+input[type="password"]#login-form-password {
+  float: left;
+  width: 50%;
+  margin-top: 20px; }
+
+input[type="submit"]#login-form-submit {
+  float: left;
+  clear: both;
+  margin-left: 20px; }
+
+::-webkit-input-placeholder {
+  /* Chrome */
+  color: #C7F2E6;
+  transition: opacity 250ms ease-in-out; }
+
+input[type="submit"] {
+  color: #11232B;
+  background-color: #9AD9C4;
+  border: 2px solid #11232B;
+  font-size: 1rem;
+  padding: 5px;
+  height: 40px;
+  width: 100px;
+  border-radius: 3px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+input[type="submit"]:hover {
+  color: aliceblue;
+  border: 2px solid aliceblue;
+  background-color: #11232B; }
+
+/*
+
+                                                MAIN STYLING BEGINS HERE
+
+                            */
+main {
+  float: none; }
+
+.clearfix {
+  clear: both; }
+
+#login-form {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10%; }
+
+#artists li {
+  float: left;
+  width: 20%;
+  margin: 2%;
+  background-color: #FFF;
+  padding: 0.5%;
+  text-align: center; }
+
+#artists li p {
+  margin: 2%;
+  margin-top: 15px; }
+
+#artist-name {
+  font-size: 150%; }
+
+#album-name {
+  font-family: 'Roboto', sans-serif; }
+
+#space {
+  height: 80px; }
+
+.artist-search {
+  float: left;
+  width: 42%;
+  padding: 20px; }
+
+.delete {
+  text-decoration: none;
+  background-color: crimson;
+  color: black;
+  padding: 5px;
+  font-weight: bolder;
+  border-radius: 5px;
+  border: 2px solid #000; }
+
+.delete:hover {
+  background-color: black;
+  color: crimson;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border: 2px solid crimson; }
+
+/*
+
+                   FOOTER STYLING BEGINS HERE
+
+         */
+footer {
+  background-color: #11232B;
+  height: 50px;
+  color: aliceblue;
+  padding: 1%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 98%; }
+
+#logout a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: aliceblue;
+  line-height: 50px;
+  float: right;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+#logout a:hover {
+  outline: 2px solid aliceblue; }
+
+/*
+
+                   RESPONSIVE STYLING BEGINS HERE
+
+         */
+@media only screen and (max-width: 1335px) {
+  #login-form {
+    margin-top: 20%; }
+  form h1 {
+    font-size: 4rem; } }
+
+@media only screen and (max-width: 1200px) {
+  #artists li {
+    width: 28.3%; } }
+
+@media only screen and (max-width: 1075px) {
+  form h1 {
+    font-size: 3rem; }
+  label {
+    font-size: 1.5rem; } }
+
+@media only screen and (max-width: 805px) {
+  form h1 {
+    font-size: 2rem; } }
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    float: none;
+    text-align: center;
+    font-size: 4rem; }
+  form {
+    width: auto; }
+  #artists li {
+    width: 45%; } }
+
+@media only screen and (max-width: 480px) {
+  form h1 {
+    padding-bottom: 0px; }
+  label {
+    padding: 20px 20px 20px 10px; }
+  h1 {
+    font-size: 2.5rem; }
+  input[type="password"]#login-form-password {
+    width: 40%; }
+  #artists li {
+    width: 95.5%; }
+  #space {
+    height: 60px; } }

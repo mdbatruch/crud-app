@@ -1,0 +1,104 @@
+          /*
+
+                   RESPONSIVE STYLING BEGINS HERE
+
+         */
+
+         @media only screen and (max-width: 1335px) {
+    
+            #login-form {
+                
+                margin-top: 20%;
+            }
+        
+            form h1 {
+        
+                font-size: 4rem;
+            }
+            
+        }
+        
+        @media only screen and (max-width: 1200px) { 
+        
+            #artists li {
+                
+                width: 28.3%;
+            }
+        }
+        
+        
+        @media only screen and (max-width: 1075px) {
+            
+            form h1 {
+              
+                font-size: 3rem;
+            }
+            
+            label {
+                
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media only screen and (max-width: 805px) {
+            
+            form h1 {
+                
+                font-size: 2rem;
+            }
+        }
+        
+        @media only screen and (max-width: 768px) {
+            
+            h1 {
+            
+                float: none;
+                text-align: center;
+                font-size: 4rem;
+        
+            }
+            
+            form {
+                
+                width:auto;
+          
+            }
+            
+            #artists li {
+                
+                width: 45%;
+            }
+        }
+        
+        @media only screen and (max-width: 480px) {
+            
+            form h1 {
+                
+                padding-bottom: 0px;
+            }
+            
+            label {
+                
+                padding: 20px 20px 20px 10px;
+            }
+            
+            h1 {
+                
+                font-size: 2.5rem;
+            }
+            
+            input[type="password"]#login-form-password{
+         
+             width: 40%;
+            }
+            
+            #artists li {
+                
+                width: 95.5%;
+            }
+            
+            #space {
+            
+            height: 60px;
+            }
+        }
