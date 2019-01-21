@@ -2,23 +2,19 @@
 
         date_default_timezone_set('America/Toronto');
 
-        // define( 'DB_HOST',      'localhost' );
-        // define( 'DB_USER',      'n00363842' );
-        // define( 'DB_PASSWORD',  'babyduck' );
-        // define( 'DB_NAME',      'humber-wddm' );
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
 
         define( 'DB_HOST',      'localhost' );
         define( 'DB_USER',      'root' );
         define( 'DB_PASSWORD',  'root' );
         define( 'DB_NAME',      'discography-app' );
 
-        // define( 'REWRITE_URLS', true );
+        define( 'REWRITE_URLS', true );
 
-        define( 'SITE_ROOT', 'http://localhost:8888/Web-Stuff/crud-app/discography-app/' );
-        // define( 'SITE_ROOT', '/' );
+        define( 'SITE_ROOT', '/' );
 
         define( 'LOGGED_IN', 'fdsfdasfsfsawfgarggnrns');
 
-//DISCOGRAPHY-APP CREDENTIALS:
-//admin@hello.com
-//password
+        $timeout_message = false;
+

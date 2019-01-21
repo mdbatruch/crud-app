@@ -158,6 +158,14 @@
                         $_SESSION[ 'firstname' ] = $row[ 'firstname' ];
                         $_SESSION[ 'lastname' ] = $row[ 'lastname' ];
                         $_SESSION[ 'email' ] = $email;
+
+                        if (!isset($_SESSION['LAST_ACTIVITY'])) {
+                            $_SESSION['LAST_ACTIVITY'] = time();
+                        }
+
+                        // $_SESSION['LAST_ACTIVITY'];
+                        // $_SERVER['REQUEST_TIME'] = time();
+                        // $_SESSION['expire'] = $_SESSION['start'] + (30 * 60);
                         
                         //redirect( '/' );
                         redirect( SITE_ROOT );
@@ -177,12 +185,62 @@
             
             return $errors;
         }
+
+        function check_session() {
+            $time = $_SERVER['REQUEST_TIME'];
+
+                $timeout_duration = 1800;
+
+                if (isset($_SESSION['LAST_ACTIVITY']) && 
+                ($time - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
+
+                    // session_unset();
+                    // session_destroy();
+                    // session_start();
+
+                    // $timeout_message = 'We\'re sorry, but your session has expired. Please login again.';
+
+                    $_SESSION[ 'login_token' ] = null;
+                    $_SESSION[ 'user_id' ] = null;
+                    $_SESSION[ 'firstname' ] = null;
+                    $_SESSION[ 'lastname' ] = null;
+                    $_SESSION[ 'email' ] = null;
+                    // // $_SESSION[ 'time' ] = null;
+                    
+                    unset( $_SESSION[ 'login_token' ] );
+                    unset( $_SESSION[ 'user_id' ] );
+                    unset( $_SESSION[ 'firstname'] );
+                    unset( $_SESSION[ 'lastname'] );
+                    unset( $_SESSION[ 'email' ] );
+                    // // unset( $_SESSION[ 'time' ] );
+
+                    session_unset(); 
+                    // session_destroy();
+
+                    if( REWRITE_URLS ){
+                        // $timeout_message = 'We\'re sorry, but your session has expired. Please login again.';
+                        // return $timeout_message;
+                        redirect( SITE_ROOT . 'login' );
+                    } else {
+                            redirect( SITE_ROOT . '?action=login');
+                        }
+                    return $timeout_message;
+                }
+
+            $_SESSION['LAST_ACTIVITY'] = $time;
+        }
                  
 
         function check_login(){
 
+            // $check_session = check_session();
+            // $t = time();
+
+            // $t = date("H:i:s",$t);
+
             //if user is not logged in
-            if( strcmp( $_SESSION[ 'login_token' ], LOGGED_IN ) != 0 ){
+            // if( strcmp( $_SESSION[ 'login_token' ], LOGGED_IN ) != 0 && !($_SESSION['time'] > 20) ){
+            if( strcmp( $_SESSION[ 'login_token' ], LOGGED_IN ) != 0){
                 if( REWRITE_URLS ){
                 redirect( SITE_ROOT . 'login' );
             } else {
@@ -192,50 +250,82 @@
         }
 
         function logout(){
+
+            $timeout_message = false;
             
             $_SESSION[ 'login_token' ] = null;
             $_SESSION[ 'user_id' ] = null;
             $_SESSION[ 'firstname' ] = null;
             $_SESSION[ 'lastname' ] = null;
             $_SESSION[ 'email' ] = null;
+            $_SESSION[ 'time' ] = null;
             
             unset( $_SESSION[ 'login_token' ] );
             unset( $_SESSION[ 'user_id' ] );
             unset( $_SESSION[ 'firstname'] );
             unset( $_SESSION[ 'lastname'] );
             unset( $_SESSION[ 'email' ] );
+            unset( $_SESSION[ 'time' ] );
+
+            session_unset();
+            // session_destroy();
             
-                if( REWRITE_URLS ){
-        redirect( SITE_ROOT . 'login' );
-    } else {
-            redirect( SITE_ROOT . '?action=login');
-        }
+            if( REWRITE_URLS ){
+                redirect( SITE_ROOT . 'login' );
+            } else {
+                redirect( SITE_ROOT . '?action=login');
+            }
+        // return $timeout_message;
 }
 
+// function add_wanted($database, $addition){
+//     global $database;
+
+//         $sql = "INSERT INTO wanted_lists ";
+//         $sql .= "(ArtistName, AlbumName, Year, AlbumCover) ";
+//         $sql .= "VALUES (";    
+//         $sql .= "'" . $wantlist->basic_information->artists[0]->name . "',";
+//         $sql .= "'" . $wantlist->basic_information->title . "',";
+//         $sql .= "'" . $wantlist->basic_information->year . "',";
+//         $sql .= "'" . $wantlist->basic_information->cover_image . "'";
+//         $sql .= ")";
+
+//         $addition = mysqli_query($database, $sql);
+            
+//             $result = mysqli_query( $database, $addition )
+//         or die( mysqli_error( $database ) );
+            
+//         if ( $result == true ){
+//             echo 'Success!';
+//         }
+// }
 
 
 //    function get_from_api( $query ){
-//        
-//        $consumerKey = 'QqEvzUDLnQlhOtIfXgki';
-//        $consumerSecret = 'ViJWGMiEQrLAuMpIahyEOgfMiFQawWNX';
-//        $token = 'WZmaWBUvZRwNVnLQaxXANIytUzgSFNyvxJCBvhGg';
-//        $tokenSecret = 'IMGBMWAnGXvfqfQNieBuqDiFAQGDMdwYjnBWlXgA';
-//
+       
+//        global $consumerKey;
+//        global $consumerSecret;
+//        global $token;
+//        global $tokenSecret;
+
+//         $mySearch = $_GET['q'];
+
 //      //  require '../vendor/autoload.php';
-//        
-//        require '../../php-discogs-api-example/vendor/autoload.php';
-//        
-////        use OAuth\OAuth1\Service\BitBucket;
+       
+//     //    require '../../php-discogs-api-example/vendor/autoload.php';
+//         require dirname(SITE_ROOT) . '/vendor/autoload.php';
+       
+// //        use OAuth\OAuth1\Service\BitBucket;
 //        //use OAuth\Common\Storage\Session;
-//        use OAuth\Common\Consumer\Credentials;
-//
+//         // OAuth\Common\Consumer\Credentials;
+
 //        ini_set('date.timezone', 'Europe/Amsterdam');
-//
+
 //        $uriFactory = new \OAuth\Common\Http\Uri\UriFactory();
 //        $currentUri = $uriFactory->createFromSuperGlobalArray($_SERVER);
 //        $currentUri->setQuery('');
-//        
-//        
+       
+       
 //        $client = Discogs\ClientFactory::factory([]);
 //        $oauth = new GuzzleHttp\Subscriber\Oauth\Oauth1([
 //            'consumer_key'    => $consumerKey, // from Discogs developer page
@@ -244,13 +334,13 @@
 //            'token_secret'    => $tokenSecret // get this using a OAuth library
 //        ]);
 //        $client->getHttpClient()->getEmitter()->attach($oauth);
-//
+
 //        $response = $client->search([
-//            //'q' => 'The Gaslight Anthem'
-//
-//                'q' => $query
+//         //    'q' => 'The Gaslight Anthem'
+
+//                'q' => $mySearch
 //        ]);
-//        
+       
 //        return $response;
 //    }
 
@@ -272,6 +362,14 @@
 //            curl_setopt_array( $curl, $options );
 //            
 //            $response = json_decode( curl_exec( $curl ) );
+
+//            $err = curl_error($curl);
+
+            //   if($err) {
+            //     echo "cURL Error #:" . $err;
+
+            //   } else {
 //            
-//            return( $response );
+//              return $response;
+            //   }
 //       }
