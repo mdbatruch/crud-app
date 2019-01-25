@@ -175,7 +175,7 @@
                                                     Wrong Password.
                                                 </p>';
                     } 
-                }else {
+                } else {
                         
                         $errors[ 'email' ] = '<p class="error">
                                                     No Email like this.
@@ -189,7 +189,7 @@
         function check_session() {
             $time = $_SERVER['REQUEST_TIME'];
 
-                $timeout_duration = 1800;
+                $timeout_duration = 10;
 
                 if (isset($_SESSION['LAST_ACTIVITY']) && 
                 ($time - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
@@ -197,8 +197,6 @@
                     // session_unset();
                     // session_destroy();
                     // session_start();
-
-                    // $timeout_message = 'We\'re sorry, but your session has expired. Please login again.';
 
                     $_SESSION[ 'login_token' ] = null;
                     $_SESSION[ 'user_id' ] = null;
@@ -214,7 +212,8 @@
                     unset( $_SESSION[ 'email' ] );
                     // // unset( $_SESSION[ 'time' ] );
 
-                    session_unset(); 
+                    session_unset();
+                    $_SESSION['logout_message'] = 'We\'re sorry, but your session has expired. Please login again.';
                     // session_destroy();
 
                     if( REWRITE_URLS ){
@@ -237,6 +236,8 @@
             // $t = time();
 
             // $t = date("H:i:s",$t);
+
+            // $_SESSION[ 'login_token' ] = LOGGED_IN;
 
             //if user is not logged in
             // if( strcmp( $_SESSION[ 'login_token' ], LOGGED_IN ) != 0 && !($_SESSION['time'] > 20) ){
@@ -268,6 +269,7 @@
             unset( $_SESSION[ 'time' ] );
 
             session_unset();
+            $_SESSION['logout_message'] = 'You have successfully logged out.';
             // session_destroy();
             
             if( REWRITE_URLS ){

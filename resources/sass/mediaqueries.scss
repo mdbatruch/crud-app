@@ -47,8 +47,78 @@
                 font-size: 2rem;
             }
         }
+
+        // @media (max-width: 991.98px) {
+
+        //     .offcanvas-collapse {
+        //         position: fixed;
+        //         top: 0px;
+        //         bottom: 0;
+        //         width: 100%;
+        //         z-index: 999;
+        //         padding-right: 1rem;
+        //         padding-left: 1rem;
+        //         padding-bottom: 35px;
+        //         overflow-y: auto;
+        //         background-color: #2b2b2b;
+        //         transition: -webkit-transform .3s ease-in-out;
+        //         -webkit-transition: -webkit-transform .3s ease-in-out;
+        //         transition: transform .3s ease-in-out;
+        //         transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+        //         -webkit-transform: translateX(calc(-100% - 1rem));
+        //         transform: translateX(calc(-100% - 1rem));
+        //     }
+        // }
+            
         
+        @media only screen and (min-width: 768px) {
+
+            // .container-fluid {
+            //     padding: 0px 15px;
+            // }
+            input[type="password"]#login-form-password{
+ 
+                //  float: left;
+                 width: 50%;
+                 margin-top: 20px;
+            }
+
+            input[type="text"]#login-form-email{
+ 
+                width: 50%;
+                margin-top: 20px;
+            }
+
+            .offcanvas-collapse {
+                .navbar-nav {
+                    li {
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+
         @media only screen and (max-width: 768px) {
+
+            .offcanvas-collapse {
+                position: fixed;
+                top: 0px;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                z-index: 999;
+                padding-right: 1rem;
+                padding-left: 1rem;
+                padding-bottom: 35px;
+                overflow-y: auto;
+                background-color: $menuGrey;
+                transition: -webkit-transform .3s ease-in-out;
+                -webkit-transition: -webkit-transform .3s ease-in-out;
+                transition: transform .3s ease-in-out;
+                transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+                -webkit-transform: translateX(calc(-100% - 1rem));
+                transform: translateX(calc(-100% - 1rem));
+            }
             
             h1 {
             
@@ -68,37 +138,46 @@
                 
                 width: 45%;
             }
+
+            .nav-open {
+                border: 3px solid #fff;
+                position: fixed;
+                right: 2%;
+                top: 2%;
+                z-index: 999;
+                background-color: $darkGreen;
+            }
         }
         
-        @media only screen and (max-width: 480px) {
+        // @media only screen and (max-width: 480px) {
             
-            form h1 {
+        //     // form h1 {
                 
-                padding-bottom: 0px;
-            }
+        //     //     padding-bottom: 0px;
+        //     // }
             
-            label {
+        //     label {
                 
-                padding: 20px 20px 20px 10px;
-            }
+        //         padding: 20px 20px 20px 10px;
+        //     }
             
-            h1 {
+        //     h1 {
                 
-                font-size: 2.5rem;
-            }
+        //         font-size: 2.5rem;
+        //     }
             
-            input[type="password"]#login-form-password{
+        //     input[type="password"]#login-form-password{
          
-             width: 40%;
-            }
+        //     //  width: 40%;
+        //     }
             
-            #artists li {
+        //     #artists li {
                 
-                width: 95.5%;
-            }
+        //         width: 95.5%;
+        //     }
             
-            #space {
+        //     #space {
             
-            height: 60px;
-            }
-        }
+        //         height: 60px;
+        //     }
+        // }

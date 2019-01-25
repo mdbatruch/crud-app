@@ -5,38 +5,46 @@
         switch( $_GET[ 'action' ] ){
                 
             case 'home':
+
+            $_SESSION['login_token'] = LOGGED_IN;
+
+            // echo $_SESSION['LAST_ACTIVITY'];
                 
-               check_login();
+            // check_login();
 
             $time = $_SERVER['REQUEST_TIME'];
 
             $timeout_duration = 1800;
 
-            if (isset($_SESSION['LAST_ACTIVITY']) && 
-                ($time - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
+            // if (isset($_SESSION['LAST_ACTIVITY']) && 
+            //     ($time - $_SESSION['LAST_ACTIVITY']) > $timeout_duration) {
 
-                    $timeout_message = 'We\'re sorry, but your session has expired. Please login again.';
+            //         // $timeout_message = 'We\'re sorry, but your session has expired. Please login again.';
                     
-                    unset( $_SESSION[ 'login_token' ] );
-                    unset( $_SESSION[ 'user_id' ] );
-                    unset( $_SESSION[ 'firstname'] );
-                    unset( $_SESSION[ 'lastname'] );
-                    unset( $_SESSION[ 'email' ] );
-                    // // unset( $_SESSION[ 'time' ] );
+            //         unset( $_SESSION[ 'login_token' ] );
+            //         unset( $_SESSION[ 'user_id' ] );
+            //         unset( $_SESSION[ 'firstname'] );
+            //         unset( $_SESSION[ 'lastname'] );
+            //         unset( $_SESSION[ 'email' ] );
+            //         // // unset( $_SESSION[ 'time' ] );
 
-                    session_unset(); 
-                    // session_destroy();
+            //         session_unset(); 
+            //         // session_destroy();
 
-                    if( REWRITE_URLS ){
-                        // $timeout_message = 'We\'re sorry, but your session has expired. Please login again.';
-                        // return $timeout_message;
-                        redirect( SITE_ROOT . 'login' );
-                    } else {
-                            redirect( SITE_ROOT . '?action=login');
-                        }
-                    // return $timeout_message;
-                }
-                
+            //         $_SESSION['logout_message'] = 'We\'re sorry, but your session has expired. Please login again.';
+
+            //         if( REWRITE_URLS ){
+            //             // $timeout_message = 'We\'re sorry, but your session has expired. Please login again.';
+            //             // return $timeout_message;
+            //             redirect( SITE_ROOT . 'login' );
+            //         } else {
+
+            //                 // return $timeout_message;
+            //                 redirect( SITE_ROOT . '?action=login');
+            //             }
+            //     } else {
+            //         $_SESSION['LAST_ACTIVITY'] = '';
+            //     }
                 $result = get_entry( $database );
 
                 break;

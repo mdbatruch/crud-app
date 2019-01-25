@@ -20,6 +20,17 @@ gulp.task('sass', function(){
     }));
 });
 
+gulp.task('bootstrap-sass', function(){
+
+    gulp.src('./sass/bootstrap.scss')
+    
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('../discography-app/css'))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+});
+
 gulp.task('watch', function(){
     
     browserSync.init({
@@ -28,6 +39,7 @@ gulp.task('watch', function(){
     });
 
     gulp.watch('./sass/*.scss', ['sass']);
+    gulp.watch('./sass/bootstrap/*.scss', ['bootstrap-sass']);
 
     gulp.watch('../discography-app/**/*.php',  browserSync.reload);
 

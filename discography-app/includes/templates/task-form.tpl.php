@@ -12,20 +12,17 @@
                        <label>Artist:</label>
                         <input type="text"
                                size="80"
-                               name="artist_name"
-                               value="<?php echo $_POST[ 'artist_name' ]; ?>"/>
+                               name="artist_name" />
                     </li>
                     <li>
                        <label>Album:</label>
                         <input type="text" 
-                               name="album_name"
-                               value="<?php echo $_POST[ 'album_name' ]; ?>" />
+                               name="album_name" />
                     </li>
                     <li>
                        <label>Year of Release:</label>
                         <input type="text"
-                               name="year_release"
-                               value="<?php echo $_POST[ 'year_release' ]; ?>" />
+                               name="year_release" />
                     </li>
                     <li>
                        <label>Upload:</label>

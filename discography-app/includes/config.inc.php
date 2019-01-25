@@ -15,6 +15,3 @@
         define( 'SITE_ROOT', '/' );
 
         define( 'LOGGED_IN', 'fdsfdasfsfsawfgarggnrns');
-
-        $timeout_message = false;
-

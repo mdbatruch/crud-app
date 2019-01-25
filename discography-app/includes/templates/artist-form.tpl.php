@@ -16,12 +16,13 @@
             $_POST['year_release'] = '';
         }
 ?>
-   <form action="<?php echo $add_artist_action; ?>" method="post" style="float: left;">
-    <fieldset>
+<div class="col-md-4">
+    <form action="<?php echo $add_artist_action; ?>" method="post">
+        <fieldset>
             <legend>Add an Album by an Artist</legend>
                 <ul id="submission-form">
                     <li>
-                      <?php 
+                    <?php 
                             if (!isset($errors['artist_name'])) {
                                 $errors['artist_name'] = '';
                             } else {
@@ -30,66 +31,65 @@
                         ?>
 <!--                       <label>Artist:</label>-->
                         <input type="text"
-                               size="80"
-                               name="artist_name"
-                               placeholder="artist"
-                               value="<?php echo $_POST[ 'artist_name' ]; ?>"/>
+                            size="80"
+                            name="artist_name"
+                            placeholder="artist"/>
                     </li>
                     <li>
 <!--                       <label>Album:</label>-->
                         <input type="text" 
-                               name="album_name"
-                               placeholder="album"
-                               value="<?php echo $_POST[ 'album_name' ]; ?>" />
+                            name="album_name"
+                            placeholder="album" />
                     </li>
                     <li>
 <!--                       <label>Year of Release:</label>-->
                         <input type="text"
-                               name="year_release"
-                               placeholder="Year of Release"
-                               value="<?php echo $_POST[ 'year_release' ]; ?>" />
+                            name="year_release"
+                            placeholder="Year of Release" />
                     </li>
-                    <li>
-<!--                       <label>Upload:</label>-->
+                    <!-- <li>
+                      <label>Upload:</label>
                         <input type="file" name="upload">
-                    </li>
+                    </li> -->
                     
                     <li>
                         <input type="submit" name="submit" />
                     </li>
                 </ul>
-    </fieldset>
-</form>
-
-<div id="wanted-list">
-
-<?php 
-    // $t = time();
-
-    // $format = date("H",$t);
-
-    // $newtime = $t + 20;
-    // // echo date("H:i:s");
-    // echo $t;
-    // echo '<br/>';
-    // echo $newtime;
-
-    // if ($format > 7203423234565430) {
-    //     echo 'expired';
-    // } else {
-    //     echo 'not expired';
-    // }
-
-    // echo $_SESSION['expire'];
-    echo $_SERVER['REQUEST_TIME'];
-    echo '<br/>';
-    echo $_SESSION['LAST_ACTIVITY'];
-    echo '<br/>';
-?>
-    Hello Mike, here's your wanted list.
+        </fieldset>
+    </form>
 </div>
 
+<div class="col-md-4">
+    <div id="wanted-list">
+        <?php 
+            // $t = time();
 
+            // $format = date("H",$t);
+
+            // $newtime = $t + 20;
+            // // echo date("H:i:s");
+            // echo $t;
+            // echo '<br/>';
+            // echo $newtime;
+
+            // if ($format > 7203423234565430) {
+            //     echo 'expired';
+            // } else {
+            //     echo 'not expired';
+            // }
+
+            // echo $_SESSION['expire'];
+            echo $_SERVER['REQUEST_TIME'];
+            echo '<br/>';
+            echo $_SESSION['LAST_ACTIVITY'];
+            echo '<br/>';
+        ?>
+        Hello Mike, here's your wanted list.
+    </div>
+</div>
+
+<div class="col-md-4">
 <?php
 
         $curl = curl_init();
@@ -130,10 +130,10 @@
             // print_r($wants->wants[1]);
 
             $count = 1;
-            echo '<ul style="list-style: none; float: left;">';
+            echo '<ul>';
             foreach ($wants->wants as $wantlist) {
                 // echo $count++;
-                    echo '<li class="test" style="float: left; margin: 40px;">';
+                    echo '<li class="test" >';
                     echo '<p id="artist-name" class="data">';
                     echo $wantlist->basic_information->artists[0]->name;
                     echo '</p>';
@@ -230,6 +230,8 @@
             // print_r($labelresponse);
         }
 ?>
+</div>
+</div>
 
 <!-- <php
         foreach ($labelresponse->releases as $label ) {
@@ -272,4 +274,4 @@
         ?>
     </ul>
 </div>-->
-<div class="clearfix"></div>
+<!-- <div class="clearfix"></div> -->
