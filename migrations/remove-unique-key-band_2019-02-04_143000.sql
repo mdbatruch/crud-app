@@ -1,0 +1,1 @@
+DROP INDEX band_name ON discography;
